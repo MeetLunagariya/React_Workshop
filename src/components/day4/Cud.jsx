@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 
 function Cud() {
-  const [sub, setSub] = useState(["sub1", "sub2"]);
-  const [data, setData] = useState("");
+  const [sub, setSub] = useState({
+    Subject_Name: "",
+    Faculty_Name: ""
+  });
+  const [data, setData] = useState([
+    { Subject_Name: "sub1", Faculty_Name: "faculty1" },
+    { Subject_Name: "sub2", Faculty_Name: "faculty2" },
+  ]);
   return (
     <div>
       <table className="table-auto">
@@ -12,18 +18,33 @@ function Cud() {
             <input
               className="bg-transparent border"
               type="text"
-              value={data}
+              value={sub.Subject_Name}
               onChange={(e) => {
-                setData(e.target.value);
+                setSub({...sub,  Subject_Name: e.target.value });
               }}
             />
           </td>
+        </tr>
+        <tr>
+          <td>Enter Name of Faculty :</td>
+          <td>
+            <input
+              className="bg-transparent border"
+              type="text"
+              value={sub.Faculty_Name}
+              onChange={(e) => {
+                setSub({...sub, Faculty_Name: e.target.value });
+              }}
+            />
+          </td>
+        </tr>
+        <tr>
           <td>
             <button
-              className="btn btn-primary"
+              className="btn btn-primary align-center"
               onClick={() => {
-                setSub([...sub, data]);
-                setData("");
+                setData([...data, sub]);
+                setSub({ Subject_Name: "", Faculty_Name: "" });
               }}
             >
               Add
@@ -32,27 +53,29 @@ function Cud() {
         </tr>
       </table>
       <table className="table-auto m-4">
-        {sub.map((e, index) => {
+        {data.map((e, index) => {
           return (
-            <tr key={index} >
-              <td className="p-3">{e}</td>
+            <tr key={index}>
+              <td className="p-3">{e.Subject_Name}</td>
+              <td className="p-3">{e.Faculty_Name}</td>
               <td>
                 <button
                   className="btn bg-red-400 text-rose-50 hover:bg-red-200 m-2"
                   onClick={() => {
-                    sub.splice(index, 1);
-                    console.log(sub)
-                    setSub([...sub]);
+                    data.splice(index, 1);
+                    console.log(sub);
+                    setData([...data]);
                   }}
                 >
                   Dlt
-                </button></td>
-                <td>
+                </button>
+              </td>
+              <td>
                 <button
                   className="btn bg-purple-500 text-rose-50 hover:bg-purple-200"
                   onClick={() => {
                     sub.splice(index, 1);
-                    console.log(sub)
+                    console.log(sub);
                     setSub([...sub]);
                   }}
                 >
@@ -60,7 +83,6 @@ function Cud() {
                 </button>
               </td>
             </tr>
-            
           );
         })}
       </table>
