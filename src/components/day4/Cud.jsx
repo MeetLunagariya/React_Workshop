@@ -31,14 +31,14 @@ function Cud() {
           </td>
         </tr>
       </table>
-      <table className="table-auto">
+      <table className="table-auto m-4">
         {sub.map((e, index) => {
           return (
-            <tr key={index}>
-              <td>{e}</td>
+            <tr key={index} >
+              <td className="p-3">{e}</td>
               <td>
                 <button
-                  className="btn bg-red-400 text-rose-50 hover:btn-warning"
+                  className="btn bg-red-400 text-rose-50 hover:bg-red-200 m-2"
                   onClick={() => {
                     sub.splice(index, 1);
                     console.log(sub)
@@ -46,9 +46,21 @@ function Cud() {
                   }}
                 >
                   Dlt
+                </button></td>
+                <td>
+                <button
+                  className="btn bg-purple-500 text-rose-50 hover:bg-purple-200"
+                  onClick={() => {
+                    sub.splice(index, 1);
+                    console.log(sub)
+                    setSub([...sub]);
+                  }}
+                >
+                  Update
                 </button>
               </td>
             </tr>
+            
           );
         })}
       </table>
