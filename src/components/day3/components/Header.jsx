@@ -1,12 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { useState } from "react";
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="navbar grid grid-flow-col bg-cyan-500 h-[80px] ">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost btn-circle"
+            onClick={() => {
+              setIsOpen(!isOpen);
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -22,20 +30,25 @@ const Header = () => {
               />
             </svg>
           </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm bg-cyan-300 dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow"
-          >
-            <li>
-              <Link to="/">Body</Link>
-            </li>
-            <li>
-              <Link to="/Calc">Calculator</Link>
-            </li>
-            <li>
-              <Link to="/Crud">Crud</Link>
-            </li>
-          </ul>
+          {isOpen && (
+            <ul
+              tabIndex={0}
+              className="menu menu-sm bg-cyan-300 dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            >
+              <li>
+                <Link to="/">Body</Link>
+              </li>
+              <li>
+                <Link to="/Calc">Calculator</Link>
+              </li>
+              <li>
+                <Link to="/Crud">Crud</Link>
+              </li>
+              <li>
+                <Link to="/mockApi">Crud(API)</Link>
+              </li>
+            </ul>
+          )}
         </div>
       </div>
       <div className="navbar-center">

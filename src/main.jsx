@@ -12,6 +12,8 @@ import Layout_1 from "./components/day3/Layout_1";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Body from "./components/day3/components/Body";
 import Cud from "./components/day4/Cud";
+import Crud_API from "./components/day5/Crud_API";
+import Faculty from "./components/day5/Faculty";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -31,6 +33,8 @@ createRoot(document.getElementById("root")).render(
             <Route index element={<Body />} />
             <Route path="/Calc" element={<Calculator />} />
             <Route path="/Crud" element={<Cud/>}/>
+            <Route path="/mockApi" element={<Crud_API/>} />
+            <Route path="/faculty/:id" element={<Faculty/>} />
           </Route>
         </Routes>
       </BrowserRouter>
