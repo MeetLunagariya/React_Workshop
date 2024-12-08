@@ -6,12 +6,12 @@ import Left from "./Left";
 
 function Body() {
   return (
-    <div className="flex-grow grid grid-cols-12 gap-1 bg-slate-400">
+    <div className="grid flex-grow grid-cols-12 gap-1 bg-slate-400  h-full">
       <div className="col-span-3 bg-slate-200">
         <Right />
       </div>
 
-      <div className="grid grid-rows-2 gap-2 col-span-6">
+      <div className="grid grid-rows-2 gap-2 col-span-6 h-full">
         <div className="h-full">
           <Content_1 />
         </div>

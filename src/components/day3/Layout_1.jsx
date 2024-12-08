@@ -10,12 +10,12 @@ import { Outlet } from "react-router-dom";
 
 function Layout_1() {
   return (
-    <div className="h-screen flex flex-col">
+    <div className="flex flex-col  min-h-screen">
       <div className="h-auto">
         <Header />
       </div>
 
-      <div>
+      <div className="flex-grow flex h-full">
         <Outlet/>
       </div>
 

@@ -26,7 +26,7 @@ function Crud_API() {
               <img
                 src={item.Faculty_Image}
                 alt={item.Faculty_Name}
-                className="rounded-2xl h-60"
+                className="rounded-2xl h-60 p-1"
               />
             </div>
             <div className="card-body  text-white">
@@ -35,7 +35,7 @@ function Crud_API() {
 
               <div className="card-actions justify-end">
                 <Link
-                  to={`/faculty/${item.Faculty_Id}`}
+                  to={`/dashboard/faculty/${item.Faculty_Id}`}
                   className="btn btn-primary hover:btn-info hover:text-white"
                 >
                   View Profile

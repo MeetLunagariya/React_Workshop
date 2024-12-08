@@ -35,18 +35,22 @@ const Header = () => {
               tabIndex={0}
               className="menu menu-sm bg-cyan-300 dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
+              
               <li>
                 <Link to="/">Body</Link>
               </li>
               <li>
-                <Link to="/Calc">Calculator</Link>
+                <Link to="/dashboard/Calc">Calculator</Link>
               </li>
               <li>
-                <Link to="/Crud">Crud</Link>
+                <Link to="/dashboard/Crud">Crud</Link>
               </li>
               <li>
-                <Link to="/mockApi">Crud(API)</Link>
+                <Link to="/dashboard/mockApi">Crud(API)</Link>
               </li>
+              {/* <li>
+                <Link to="/">Login</Link>
+              </li> */}
             </ul>
           )}
         </div>

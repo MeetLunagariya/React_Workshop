@@ -14,6 +14,7 @@ import Body from "./components/day3/components/Body";
 import Cud from "./components/day4/Cud";
 import Crud_API from "./components/day5/Crud_API";
 import Faculty from "./components/day5/Faculty";
+import Login from "./components/Crud_API/Login";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -29,13 +30,16 @@ createRoot(document.getElementById("root")).render(
       {/* <Layout_1/> */}
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Layout_1/>}>
-            <Route index element={<Body />} />
-            <Route path="/Calc" element={<Calculator />} />
-            <Route path="/Crud" element={<Cud/>}/>
-            <Route path="/mockApi" element={<Crud_API/>} />
-            <Route path="/faculty/:id" element={<Faculty/>} />
-          </Route>
+          <Route path="/" element={<Login />}/>
+            <Route path="/dashboard" element={<Layout_1 />}>
+              <Route index element={<Body />} />
+              <Route path="/dashboard/Calc" element={<Calculator />} />
+              <Route path="/dashboard/Crud" element={<Cud />} />
+              <Route path="/dashboard/mockApi" element={<Crud_API />} />
+              <Route path="/dashboard/faculty/:id" element={<Faculty />} />
+            </Route>
+          
+          {/* <Login/> */}
         </Routes>
       </BrowserRouter>
     </>
