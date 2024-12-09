@@ -6,9 +6,19 @@ import Right from "./components/Right";
 import Left from "./components/Left";
 import Footer from "./components/Footer";
 import Body from "./components/Body";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function Layout_1() {
+  const navigate = useNavigate();
+  const Token = localStorage.getItem("Token");
+
+  useEffect(() => {
+    if (!Token) {
+      navigate("/");
+    }
+  }, [])
+  
   return (
     <div className="flex flex-col  min-h-screen">
       <div className="h-auto">

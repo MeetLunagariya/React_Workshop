@@ -1,10 +1,16 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [data, setData] = useState({ UserName: "", Password: "" });
   const navigate = useNavigate();
   const URL = "http://localhost:3000/login";
+
+  useEffect(() => {
+    if (localStorage.getItem("Token") != null) {
+      navigate("/dashboard");
+    }
+  }, []);
 
   return (
     <div className="w-screen flex items-center justify-center bg-black h-screen">
@@ -44,6 +50,7 @@ const Login = () => {
                   .then((res) => res.json())
                   .then((res) => {
                     if (res.success) {
+                      localStorage.setItem("Token", res.token);
                       navigate("/dashboard");
                     } else {
                       alert("Enter Valid USerName or Password.");

@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
   return (
     <div className="navbar grid grid-flow-col bg-cyan-500 h-[80px] ">
       <div className="navbar-start">
@@ -35,7 +36,6 @@ const Header = () => {
               tabIndex={0}
               className="menu menu-sm bg-cyan-300 dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-              
               <li>
                 <Link to="/">Body</Link>
               </li>
@@ -53,6 +53,16 @@ const Header = () => {
               </li> */}
             </ul>
           )}
+        </div>
+        <div className="btn btn-accent ml-3">
+          <button
+            onClick={() => {
+              localStorage.removeItem("Token");
+              navigate("/");
+            }}
+          >
+            Log out
+          </button>
         </div>
       </div>
       <div className="navbar-center">
