@@ -36,7 +36,7 @@ function Faculty() {
 
             <div className="card-actions flex justify-between ">
               <Link
-                to="/mockApi"
+                to="/dashboard/mockApi"
                 className="btn btn-secondary hover:text-white"
               >
                 Back
@@ -53,7 +53,7 @@ function Faculty() {
                       method: "DELETE",
                     }).then(() => {
                       alert("Faculty deleted successfully");
-                      navigate("/mockApi");
+                      navigate("/dashboard/mockApi");
                     });
                   }}
                 >
